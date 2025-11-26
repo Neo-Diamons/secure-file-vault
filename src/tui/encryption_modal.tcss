@@ -1,0 +1,33 @@
+ModalScreen {
+    align: center middle;
+}
+
+.modal {
+    width: 60;
+    height: 11;
+    padding: 0 1;
+    border: thick $background 80%;
+    background: $surface;
+}
+.modal_label {
+    height: 1fr;
+    width: 1fr;
+    content-align: center middle;
+}
+
+#modal_encryption_hint {
+    padding-top: 1;
+}
+#modal_encryption_buttons {
+    padding-top: 1;
+    grid-size: 2 1;
+    grid-gutter: 1 2;
+}
+
+#modal_encryption {
+    height: 14;
+}
+
+Button {
+    width: 100%;
+}

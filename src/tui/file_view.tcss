@@ -1,0 +1,16 @@
+#file_view_grid {
+    grid-size: 2;
+	grid-rows: 1fr;
+	grid-columns: 50 1fr;
+}
+
+#file_label {
+	width: 100%;
+	padding: 1 2;
+	text-style: bold;
+	background: $surface;
+}
+
+#file_content {
+	padding: 1 2;
+}
