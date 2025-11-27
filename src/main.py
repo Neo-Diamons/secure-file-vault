@@ -13,7 +13,10 @@ from utils.encryption import Encryption
 
 def get_parser():
     parser = argparse.ArgumentParser(
-        description="Secure File Vault (Encryption & Decryption Tool)"
+        description="""Secure File Vault (Encryption & Decryption Tool).
+A command-line tool to encrypt and decrypt files using password-based encryption.
+If no command is provided, a text-based user interface (TUI) will be launched.""",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     subparsers = parser.add_subparsers(title="commands", dest="command")
 
