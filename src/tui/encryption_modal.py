@@ -73,32 +73,20 @@ class EncryptionModal(ModalScreen):
                 return
 
             if self.mode == EncryptionMode.ENCRYPTION:
-                relpath = self.relpath + ".encrypted"
                 try:
-                    self.encryption.encrypt_file(
-                        self.relpath, relpath, password_input.value
-                    )
+                    self.encryption.encrypt_file(self.relpath, password_input.value)
                 except Exception:
                     password_hint.update("Encryption failed: An error occurred.")
                     return
             elif self.mode == EncryptionMode.DECRYPTION:
-                relpath = self.relpath.removesuffix(".encrypted")
                 try:
-                    self.encryption.decrypt_file(
-                        self.relpath, relpath, password_input.value
-                    )
+                    self.encryption.decrypt_file(self.relpath, password_input.value)
                 except InvalidToken:
                     password_hint.update("Decryption failed: Invalid password.")
                     return
                 except Exception:
                     password_hint.update("Decryption failed: An error occurred.")
                     return
-
-            try:
-                if os.path.exists(self.relpath):
-                    os.remove(self.relpath)
-            except Exception:
-                pass
 
             await self.clear_fn()
 

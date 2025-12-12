@@ -60,15 +60,10 @@ def main():
         if not args.password:
             args.password = getpass.getpass("Enter encryption password: ")
         try:
-            encryption.encrypt_file(
-                input_filename=args.filepath,
-                output_filename=args.filepath + ".encrypted",
-                password=args.password,
-            )
+            encryption.encrypt_file(args.filepath, args.password)
         except Exception:
             print("Error: Encryption failed.", file=sys.stderr)
             return
-        os.remove(args.filepath)
     elif args.command == "decrypt":
         if not os.path.exists(args.filepath):
             print("Error: File does not exist.", file=sys.stderr)
@@ -80,18 +75,13 @@ def main():
         if not args.password:
             args.password = getpass.getpass("Enter decryption password: ")
         try:
-            encryption.decrypt_file(
-                input_filename=args.filepath,
-                output_filename=args.filepath.removesuffix(".encrypted"),
-                password=args.password,
-            )
+            encryption.decrypt_file(args.filepath, args.password)
         except InvalidToken:
             print("Error: Decryption failed. Invalid password.", file=sys.stderr)
             return
         except Exception:
             print("Error: Decryption failed.", file=sys.stderr)
             return
-        os.remove(args.filepath)
     else:
         app = Tui()
         app.run()
