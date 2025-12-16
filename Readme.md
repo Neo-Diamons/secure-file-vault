@@ -13,3 +13,6 @@ pip install --require-hashes --only-binary=all -r requirements.txt
 ```bash
 python src/main.py
 ```
+## For more information
+Please refer to the documentation in the `docs` folder.
+Link to the docs: [View the documentation](./docs/documentation.md)
